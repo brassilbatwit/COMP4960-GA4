@@ -30,9 +30,15 @@ A Possible structure:
 
 Room Scheme
 I	  II
-IV	III
+
+IV   III
 
 
 
 # Salad Maker
 Each room is a type of garden and they have different things in them.
+Brendan is working room 1
+Dalton is working room 2 with salad
+Tyler is working room 3
+Cole is working room 4
+
