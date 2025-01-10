@@ -37,8 +37,22 @@ IV   III
 
 # Salad Maker
 Each room is a type of garden and they have different things in them.
+
 Brendan is working room 1
 Dalton is working room 2 with salad
 Tyler is working room 3
 Cole is working room 4
 
+# Assets
+
+Assets are stored in plaintext files. An `AssetManager` class is responsible for loading all assets at the start of the game and providing a means of accessing each asset by a unique key.
+
+### ASCII Art
+
+ASCII art is located in the directory `assets/ascii-art`. Each piece of ASCII art is stored in its own file. The name of the file (without extension) is used as the asset's key.
+
+### Dialogue
+
+Dialogue is are located in the directory `assets/dialogue`. One file can contain multiple lines of dialogue.
+
+Each line of the file contains one key/value pair, separated by a pipe character in the format `key | value`. Text before the first pipe is used as the asset's key after being trimmed for whitespace. Any remaining text after the first pipe character is used as the asset's value after being trimmed for whitespace.
