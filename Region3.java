@@ -2,7 +2,7 @@ import java.util.Scanner;
 //Author Tyler Cornell
 public class Region3 {
 
-    public static void main(String[] args) {
+    public static void Room3() {
         Scanner scanner = new Scanner(System.in);
         // Welcome Prompt for Entering room Three
         System.out.println("Welcome to Room Three of the Garden!");
@@ -29,6 +29,12 @@ public class Region3 {
                 item = (choiceTomatoes == 1) ? "3 tomatoes" : "6 tomatoes";
                 break;
             case 2:
+                System.out.println("What item would you like to grab from the shed?");
+                System.out.println("1. Bowl");
+                System.out.println("2. Bucker of ranch");
+                System.out.println("Enter your choice (1/2): ");
+                int choiceShed = scanner.nextInt();
+                item = (choiceShed == 1) ? "Bowl" : "Bucket of ranch";
                 break;
             case 3:
                 break;
