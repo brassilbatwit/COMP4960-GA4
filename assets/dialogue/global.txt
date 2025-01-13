@@ -1,0 +1,3 @@
+choose          | Choose:
+directionPrompt | Where would you like to go?
+directionError  | You cannot go there. Try again:
