@@ -1,10 +1,11 @@
+import java.util.HashMap ;
 import java.util.Scanner;
 //Author Tyler Cornell
 public class Region3 {
 
     public static void Room3() {
     Scanner scanner = new Scanner(System.in);
-    String item = ""; // To store the item player picks
+    HashMap<String, Integer> items = new HashMap<>(); // Dictionary to store items and their quantities
 
     // Welcome Prompt for Entering room Three
     System.out.println("Welcome to Room Three of the Garden!");
@@ -30,20 +31,38 @@ public class Region3 {
                 System.out.println("2. 6 tomatoes");
                 System.out.println("Enter your choice (1/2): ");
                 int choiceTomatoes = scanner.nextInt();
-                item = (choiceTomatoes == 1) ? "3 tomatoes" : "6 tomatoes";
-                System.out.println("Congratulations! You have received: " + item);
+                if (choiceTomatoes == 1) {
+                    items.put("Tomatoes", items.getOrDefault("Tomatoes", 0) + 3);  // Add 3 tomatoes if already exists
+                    System.out.println("Congratulations! You have received: 3 tomatoes");
+                } 
+                else if (choiceTomatoes == 2) {
+                    items.put("Tomatoes", items.getOrDefault("Tomatoes", 0) + 6);  // Add 6 tomatoes if already exists
+                    System.out.println("Congratulations! You have received: 6 tomatoes");
+                } 
+                else {
+                    System.out.println("Invalid choice.");
+            }
                 break;
-
+        
             case 2:
                 System.out.println("What item would you like to grab from the shed?");
                 System.out.println("1. Bowl");
                 System.out.println("2. Bucket of ranch");
                 System.out.println("Enter your choice (1/2): ");
                 int choiceShed = scanner.nextInt();
-                item = (choiceShed == 1) ? "Bowl" : "Bucket of ranch";
-                System.out.println("Congratulations! You have received: " + item);
+                if (choiceShed == 1) {
+                    items.put("Bowl", items.getOrDefault("Bowl", 0) + 1);  // Add 1 bowl if already exists
+                    System.out.println("Congratulations! You have received: 1 Bowl");
+                } 
+                else if (choiceShed == 2) {
+                    items.put("Bucket of ranch", items.getOrDefault("Bucket of ranch", 0) + 1);  // Add 1 bucket of ranch
+                    System.out.println("Congratulations! You have received: 1 Bucket of ranch");
+                } 
+                else {
+                    System.out.println("Invalid choice.");
+                }
                 break;
-
+                
             case 3:
                 // Call Region 2 method
                 Region2();
