@@ -1,4 +1,5 @@
 
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
@@ -158,7 +159,7 @@ public class Region4 implements IRegion {
     public int enter(Game game) {
         HashMap<String, Integer> items = game.getState().getItems();
         initialRoom(game);
-        return 1;
+        return leave(game);
     }
 
     private static void initialRoom(Game game) {
@@ -246,5 +247,19 @@ public class Region4 implements IRegion {
                 break;
         }  
     }
+    
+    private int leave(Game game) {
+        EnumSet<CardinalDirection> options = EnumSet.of(CardinalDirection.East, CardinalDirection.South);
+        CardinalDirection choice = game.chooseDirection(options);
+        switch (choice) {
+            case North:
+                return 1;
+            case East:
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
 
 }
