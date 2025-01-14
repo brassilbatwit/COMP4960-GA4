@@ -23,11 +23,12 @@ public class Game {
      * @param inputStream Stream to use when reading input.
      * @param outputStream Stream to use when printing output.
      */
-    public Game(Path path, InputStream inputStream, PrintStream outputStream) {
+    public Game(Path path, InputStream inputStream, PrintStream outputStream) throws IOException {
         input = new Scanner(inputStream);
         output = outputStream;
         state = new GameState();
         root = path;
+        assetManager.load(path);
     }
 
     /**
