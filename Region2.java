@@ -104,7 +104,7 @@ public class Region2
 
                 case 4:
                     // Call Region 3 method
-                    Region3.Room3();
+                    Region3.Room3(items);
                     continueInRoom = false ; // Exit loop after leaving Room 3
                     break ;
 
