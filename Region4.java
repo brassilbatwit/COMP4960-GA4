@@ -245,7 +245,6 @@ public class Region4 implements IRegion {
                 System.out.print("Invalid input. Please select an option 1");
                 break;
         }  
-        // add logic for hidden room here
     }
 
 }
