@@ -2,6 +2,10 @@
 import java.util.EnumSet;
 import java.util.Random;
 
+/**
+ * Room 1
+ * @author Brendan Brassil
+ */
 public class Region1 implements IRegion {
     private final Random random = new Random();
 
