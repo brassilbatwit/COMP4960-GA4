@@ -36,6 +36,7 @@ public class Region4 implements IRegion {
                 //unsure if this woeks currently, need to test
                 game.getState().getItems().put("key", 1);
                 //add some more logic to give the two choices again to the player about how to move
+                leftRoom(game);
                 break;
             default:
                 //check for invalid input
@@ -249,7 +250,7 @@ public class Region4 implements IRegion {
     }
     
     private int leave(Game game) {
-        EnumSet<CardinalDirection> options = EnumSet.of(CardinalDirection.East, CardinalDirection.South);
+        EnumSet<CardinalDirection> options = EnumSet.of(CardinalDirection.North, CardinalDirection.East);
         CardinalDirection choice = game.chooseDirection(options);
         switch (choice) {
             case North:
