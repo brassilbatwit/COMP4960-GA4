@@ -1,11 +1,11 @@
+
 import java.util.Scanner;
 
 //Coles' Region
-
-public class Region4 {
+public class Region4 implements IRegion {
     //creating region initially without any theme, will change later
 
-    public static void leftRoom(){
+    private static void leftRoom(Game game) {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("You have entered the left room");
@@ -13,18 +13,18 @@ public class Region4 {
         System.out.println("1. Return to starting room");
         System.out.println("2. Enter the door on your left connected to the middle room");
         System.out.println("3. Explore this room further");
-        System.out.println("Enter the number of your choice (1/2/3): "); 
+        System.out.println("Enter the number of your choice (1/2/3): ");
 
         int inputChoice = scan.nextInt();
 
         switch (inputChoice) {
             case 1:
                 //enter the initial room
-                initialRoom();
+                initialRoom(game);
                 break;
             case 2:
                 //enter the middle room
-                middleRoom();
+                middleRoom(game);
                 break;
             case 3:
                 //explore room and find a key needed for treasure room
@@ -39,7 +39,7 @@ public class Region4 {
         }
     }
 
-    public static void rightRoom(){
+    public static void rightRoom(Game game) {
 
         Scanner scan = new Scanner(System.in);
 
@@ -48,18 +48,18 @@ public class Region4 {
         System.out.println("1. Return to starting room");
         System.out.println("2. Enter the door on your right connected to the middle room");
         System.out.println("3. Explore this room further");
-        System.out.println("Enter the number of your choice (1/2/3): "); 
+        System.out.println("Enter the number of your choice (1/2/3): ");
 
         int inputChoice = scan.nextInt();
 
         switch (inputChoice) {
             case 1:
                 //enter the initial room
-                initialRoom();
+                initialRoom(game);
                 break;
             case 2:
                 //enter the middle room
-                middleRoom();
+                middleRoom(game);
                 break;
             case 3:
                 //explore room and find a key needed for treasure room
@@ -70,7 +70,7 @@ public class Region4 {
                 System.out.println("2. No");
                 System.out.println("Enter the number of your choice (1/2): ");
 
-                switch (inputChoice){
+                switch (inputChoice) {
                     case 1:
                         //you speak with the wanderer
                         System.out.println("Would you like to play a game of dice for an item?");
@@ -78,7 +78,7 @@ public class Region4 {
                         break;
                     case 2:
                         //you return to the room and don't speak with the wanderer
-                        rightRoom();
+                        rightRoom(game);
                         break;
                 }
 
@@ -91,18 +91,19 @@ public class Region4 {
         }
     }
 
-    public static void middleRoom(){
+    public static void middleRoom(Game game) {
         System.out.println("You have entered the middle room");
 
     }
 
-    //main method that runs the TA with switch cases
-    public static void main(String[] args) {
-        initialRoom();
+    @Override
+    public int enter(Game game) {
+        initialRoom(game);
+        return 1;
     }
 
-    public static void initialRoom(){
-        Scanner scan = new Scanner(System.in);
+    private static void initialRoom(Game game) {
+        Scanner scan = game.getInput();
 
         //giving user choice for initial room selection
         System.out.println("You have entered the 4th Region");
@@ -111,7 +112,7 @@ public class Region4 {
         System.out.println("2. Enter the right room");
         System.out.println("3. Enter the middle room");
         System.out.println("4. Return to the beginning");
-        System.out.println("Enter the number of your choice (1/2/3/4): "); 
+        System.out.println("Enter the number of your choice (1/2/3/4): ");
 
         int inputChoice = scan.nextInt();
 
@@ -119,15 +120,15 @@ public class Region4 {
         switch (inputChoice) {
             case 1:
                 //enter the left room
-                leftRoom();
+                leftRoom(game);
                 break;
             case 2:
                 //enter the right room
-                rightRoom();
+                rightRoom(game);
                 break;
             case 3:
                 //enter the middle room
-                middleRoom();
+                middleRoom(game);
                 break;
             case 4:
                 //send to beginning, need to create logic for this
@@ -138,12 +139,11 @@ public class Region4 {
                 System.out.print("Invalid input. Please select an option 1-4");
                 break;
         }
-
     }
 
     //need to add logic for a dice game where whoever rolls higher wins, in which the winner gets the key needed for the treasure room
     private static void diceGame() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
 }

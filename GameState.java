@@ -18,6 +18,15 @@ public class GameState {
         return items.getOrDefault(name, 0);
     }
 
+    
+    /**
+     * Accesses game items.
+     * @return Map of [item name: item count].
+     */
+    public HashMap<String, Integer> getItems() {
+        return items;
+    }
+
     /**
      * Adds items.
      * @param name Item name.

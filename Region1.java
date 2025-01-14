@@ -4,9 +4,11 @@ import java.util.Random;
 
 /**
  * Room 1
+ *
  * @author Brendan Brassil
  */
 public class Region1 implements IRegion {
+
     private final Random random = new Random();
 
     private int gnomeHealth = 10;
@@ -15,25 +17,22 @@ public class Region1 implements IRegion {
 
     private boolean isReturning = false;
 
+    @Override
     public int enter(Game game) {
         if (isReturning) {
             if (game.getState().completed) {
                 talkReenterPlus(game);
-            }
-            else if (isGnomeHostile) {
+            } else if (isGnomeHostile) {
                 talkReenterFight(game);
                 fight(game);
-            }
-            else {
+            } else {
                 talkReenter(game);
             }
-        }
-        else {
+        } else {
             if (game.getState().completed) {
                 talkEnterPlus(game);
                 giveAllCucumbers(game);
-            }
-            else {
+            } else {
                 talkEnter(game);
                 fight(game);
             }
@@ -60,8 +59,7 @@ public class Region1 implements IRegion {
                         int damage = rollDamage();
                         game.getOutput().printf(game.getAssets().getDialogue("hit") + "%n", damage);
                         gnomeHealth = Math.max(gnomeHealth - damage, 0);
-                    }
-                    else {
+                    } else {
                         game.getOutput().println(game.getAssets().getDialogue("miss"));
                     }
                     break;
@@ -87,14 +85,17 @@ public class Region1 implements IRegion {
     private void giveCucumber(Game game) {
         game.getState().giveItem("cucumber", 1);
     }
-    
+
     private int leave(Game game) {
         EnumSet<CardinalDirection> options = EnumSet.of(CardinalDirection.East, CardinalDirection.South);
         CardinalDirection choice = game.chooseDirection(options);
         switch (choice) {
-            case East: return 2;
-            case South: return 4;
-            default: return -1;
+            case East:
+                return 2;
+            case South:
+                return 4;
+            default:
+                return -1;
         }
     }
 
@@ -110,17 +111,17 @@ public class Region1 implements IRegion {
         talkGreeting(game);
         int choice = getChoice(game, 3);
         switch (choice) {
-        case 1:
-            game.getOutput().println(game.getAssets().getDialogue("gnomeCucumbers1"));
-            talkCucumbers(game);
-            break;
-        case 2:
-            game.getOutput().println(game.getAssets().getDialogue("gnomeCucumbers2"));
-            talkCucumbers(game);
-            break;
-        case 3:
-            game.getOutput().println(game.getAssets().getDialogue("gnomeHostile1"));
-            break;
+            case 1:
+                game.getOutput().println(game.getAssets().getDialogue("gnomeCucumbers1"));
+                talkCucumbers(game);
+                break;
+            case 2:
+                game.getOutput().println(game.getAssets().getDialogue("gnomeCucumbers2"));
+                talkCucumbers(game);
+                break;
+            case 3:
+                game.getOutput().println(game.getAssets().getDialogue("gnomeHostile1"));
+                break;
         }
         game.getInput().nextLine();
         game.clearOutput();
@@ -135,14 +136,14 @@ public class Region1 implements IRegion {
         game.getOutput().printf("3) %s%n", game.getAssets().getDialogue("gnomeCucumbersR3"));
         int choice = getChoice(game, 3);
         switch (choice) {
-        case 1:
-        case 2:
-            game.getOutput().println(game.getAssets().getDialogue("gnomeHostile1"));
-            break;
-        case 3:
-            giveCucumber(game);
-            game.getOutput().println(game.getAssets().getDialogue("gnomeHostile2"));
-            break;
+            case 1:
+            case 2:
+                game.getOutput().println(game.getAssets().getDialogue("gnomeHostile1"));
+                break;
+            case 3:
+                giveCucumber(game);
+                game.getOutput().println(game.getAssets().getDialogue("gnomeHostile2"));
+                break;
         }
     }
 
