@@ -1,1 +1,25 @@
-hi | Hi.
+cucumberEnter1   | A lush, green cucumber patch lies before you.
+cucumberEnter2   | In the middle of the cucumber patch stands a solitary gnome.
+cucumberReenter1 | Gnome: No! My cucumbers!
+cucumberReenter2 | The cucumber patch holds no more secrets which pique your interest.
+gnomeGreeting    | Gnome: Hello there!
+gnomeGreetingR1  | Mister Gnome.
+gnomeGreetingR2  | Hello. I'm making a salad.
+gnomeGreetingR3  | Pardon me. I'd like to pick some cucumbers.
+gnomeCucumbers1  | Gnome: Pretty cucumbers, aren't they?
+gnomeCucumbers2  | Gnome: Can't make a salad without cucumbers!
+gnomeCucumbersR1 | Could I have some?
+gnomeCucumbersR2 | Indeed. That's why I'm here.
+gnomeCucumbersR3 | [Pick a cucumber.]
+gnomeHostile1    | Gnome: These are my cucumbers! Go get your own!
+gnomeHostile2    | Gnome: Thief! Thief!
+combatEngaged    | [Combat engaged.]
+attack           | [Attack]
+flee             | [Flee]
+hit              | [Hit! (Damage: %d)]
+miss             | [Miss!]
+cucumberEnter+1  | Gnome: Just take them and begone.
+cucumberEnter+2  | [The gnome hands you several freshly picked cucumbers.]
+cucumberReenter+ | Gnome: You have my cucumbers, so just go already. Shoo!
+gnomeDefeated    | [The gnome has been defeated.]
+pickCucumbers    | [You pick several cucumbers.]

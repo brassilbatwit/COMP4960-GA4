@@ -57,15 +57,18 @@ public class AssetManager {
     
     private void loadDialogue(Path path) throws IOException {
         Files.walk(path.resolve(Paths.get(DIALOGUE_PATH))).forEach((Path p) -> {
-            if( Files.isDirectory(p) ) {
-                return;
-            }
             try {
+                if( Files.isDirectory(p) ) {
+                    return;
+                }
                 for (String line : Files.readAllLines(p)) {
-                    int index = line.indexOf('|');
-                    String key = line.substring(0, index).trim();
-                    String value = line.substring(index + 1).trim();
-                    dialogue.put(key, value);
+                    try {
+                        int index = line.indexOf('|');
+                        String key = line.substring(0, index).trim();
+                        String value = line.substring(index + 1).trim();
+                        dialogue.put(key, value);
+                    }
+                    catch (Exception ex) {} // Ignore lines with improper formatting
                 }
             }
             catch (IOException ex) {}
