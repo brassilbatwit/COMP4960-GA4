@@ -3,9 +3,9 @@ import java.util.Scanner;
 //Author Tyler Cornell
 public class Region3 {
 
-    public static void Room3() {
+    public static void Room3(HashMap<String, Integer> items) {
     Scanner scanner = new Scanner(System.in);
-    HashMap<String, Integer> items = new HashMap<>(); // Dictionary to store items and their quantities
+    //HashMap<String, Integer> items = new HashMap<>(); // Dictionary to store items and their quantities
 
     // Welcome Prompt for Entering room Three
     System.out.println("Welcome to Room Three of the Garden!");
@@ -65,7 +65,7 @@ public class Region3 {
                 
             case 3:
                 // Call Region 2 method
-                Region2();
+                Region2.Room2(items);
                 continueInRoom = false; // Exit loop after leaving Room 3
                 break;
 
