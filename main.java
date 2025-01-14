@@ -13,7 +13,7 @@ public class main {
                 new Region3(),
                 new Region4()
             };
-            int roomIndex = 0; //random.nextInt(ROOM_COUNT);
+            int roomIndex = random.nextInt(ROOM_COUNT);
             while( roomIndex >= 0) {
                 roomIndex = rooms[roomIndex].enter(game) - 1;
             }
